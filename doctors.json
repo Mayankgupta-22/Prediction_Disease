@@ -1,0 +1,152 @@
+{
+    "cold": {
+        "doctor_name": "Dr. Anjali Sharma",
+        "specialization": "General Physician",
+        "contact": "98XXXXXX01",
+        "notes": "Available at City Clinic, Raipur. General consultation for common illnesses."
+    },
+    "common cold": {
+        "doctor_name": "Dr. Anjali Sharma",
+        "specialization": "General Physician",
+        "contact": "98XXXXXX01",
+        "notes": "Available at City Clinic, Raipur. General consultation for common illnesses."
+    },
+    "cough": {
+        "doctor_name": "Dr. Vikram Singh",
+        "specialization": "Pulmonologist / General Physician",
+        "contact": "98XXXXXX02",
+        "notes": "Consult if cough persists for more than a week or is severe. HealthHub Polyclinic."
+    },
+    "diabetes": {
+        "doctor_name": "Dr. Priya Mehta",
+        "specialization": "Endocrinologist",
+        "contact": "97XXXXXX03",
+        "notes": "Specializes in diabetes management. Located at Apollo Hospital, Raipur."
+    },
+    "diabetes ": {
+        "doctor_name": "Dr. Priya Mehta",
+        "specialization": "Endocrinologist",
+        "contact": "97XXXXXX03",
+        "notes": "Specializes in diabetes management. Located at Apollo Hospital, Raipur."
+    },
+    "hypertension": {
+        "doctor_name": "Dr. Ramesh Gupta",
+        "specialization": "Cardiologist",
+        "contact": "96XXXXXX04",
+        "notes": "Manages high blood pressure and related heart conditions. CareFirst Hospital."
+    },
+    "arthritis": {
+        "doctor_name": "Dr. Sunita Verma",
+        "specialization": "Rheumatologist",
+        "contact": "95XXXXXX05",
+        "notes": "Expert in joint pain and autoimmune diseases. Rheumatology Center, Raipur."
+    },
+    "osteoarthristis": {
+        "doctor_name": "Dr. Sunita Verma",
+        "specialization": "Rheumatologist / Orthopedic Surgeon",
+        "contact": "95XXXXXX05",
+        "notes": "Joint specialist. Rheumatology Center or consult Orthopedics at major hospitals."
+    },
+    "acne": {
+        "doctor_name": "Dr. Neha Agarwal",
+        "specialization": "Dermatologist",
+        "contact": "94XXXXXX06",
+        "notes": "Skin specialist. DermaCare Clinic, Raipur."
+    },
+    "migraine": {
+        "doctor_name": "Dr. Alok Jain",
+        "specialization": "Neurologist",
+        "contact": "93XXXXXX07",
+        "notes": "Consult for diagnosis and management of severe or frequent headaches. NeuroLife Clinic."
+    },
+    "malaria": {
+        "doctor_name": "Dr. Anjali Sharma / Govt. Hospital",
+        "specialization": "General Physician / Infectious Disease",
+        "contact": "98XXXXXX01 / Local Health Centre",
+        "notes": "Requires immediate medical attention. Visit nearest hospital or GP."
+    },
+    "dengue": {
+        "doctor_name": "Dr. Anjali Sharma / Govt. Hospital",
+        "specialization": "General Physician / Infectious Disease",
+        "contact": "98XXXXXX01 / Local Health Centre",
+        "notes": "Requires immediate medical attention. Monitor platelet count. Visit nearest hospital or GP."
+    },
+    "typhoid": {
+        "doctor_name": "Dr. Vikram Singh / Govt. Hospital",
+        "specialization": "General Physician / Infectious Disease",
+        "contact": "98XXXXXX02 / Local Health Centre",
+        "notes": "Requires diagnosis and antibiotic treatment. Visit nearest hospital or GP."
+    },
+    "pneumonia": {
+        "doctor_name": "Dr. Vikram Singh",
+        "specialization": "Pulmonologist / General Physician",
+        "contact": "98XXXXXX02",
+        "notes": "Requires medical evaluation and likely antibiotics. HealthHub Polyclinic or hospital."
+    },
+    "gastroenteritis": {
+        "doctor_name": "Dr. Anjali Sharma",
+        "specialization": "General Physician",
+        "contact": "98XXXXXX01",
+        "notes": "Focus on hydration. Consult if symptoms are severe or persistent. City Clinic, Raipur."
+    },
+    "jaundice": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Requires investigation into the underlying cause. GastroCare Center, Raipur."
+    },
+    "hepatitis a": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Usually self-limiting, consult for monitoring. GastroCare Center, Raipur."
+    },
+    "hepatitis b": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Requires specialist management. GastroCare Center, Raipur."
+    },
+    "hepatitis c": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Requires specialist management. GastroCare Center, Raipur."
+    },
+    "hepatitis d": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Requires specialist management (linked to Hep B). GastroCare Center, Raipur."
+    },
+    "hepatitis e": {
+        "doctor_name": "Dr. Sanjay Tiwari",
+        "specialization": "Gastroenterologist / Hepatologist",
+        "contact": "92XXXXXX08",
+        "notes": "Consult for monitoring, especially if pregnant. GastroCare Center, Raipur."
+    },
+    "heart attack": {
+        "doctor_name": "Emergency Services / Hospital ER",
+        "specialization": "Emergency Medicine / Cardiology",
+        "contact": "102 / 108 / Nearest Hospital ER",
+        "notes": "Medical emergency requiring immediate hospital visit. Time is critical."
+    },
+    "allergy": {
+        "doctor_name": "Dr. Kavita Nair",
+        "specialization": "Allergist / Immunologist",
+        "contact": "91XXXXXX09",
+        "notes": "For persistent or severe allergies. Allergy & Asthma Clinic, Raipur."
+    },
+    "urinary tract infection": {
+        "doctor_name": "Dr. Anjali Sharma / Dr. Ashok Kumar",
+        "specialization": "General Physician / Urologist",
+        "contact": "98XXXXXX01 / 90XXXXXX10",
+        "notes": "Requires diagnosis and antibiotics. Consult GP first, Urologist (Dr. Kumar) if recurrent."
+    },
+    "_default_": {
+        "doctor_name": "General Physician",
+        "specialization": "General Medicine",
+        "contact": "Search Local Clinics/Hospitals",
+        "notes": "Generally available for most conditions. For specific issues, consult a specialist which is available in  Ramkrishna Hospital, Raipur."
+    }
+}
