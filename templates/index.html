@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health AI - Disease Predictor</title>
+    <meta name="description"
+        content="AI-powered disease predictor. Check symptoms and get health suggestions instantly.">
+    <meta name="author" content="Health AI Team">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            background: #0056b3;
+            color: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            background-color: #00408a;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #e7f3ff, #ffffff);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #0056b3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        .hero-image {
+            flex-basis: 350px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 8px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #218838;
+        }
+
+        #predictor-section {
+            padding: 50px 0;
+        }
+
+        #predictor-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0056b3;
+            font-size: 2rem;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            max-height: 450px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .symptom-item label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .symptom-item label:hover {
+            background-color: #e7f3ff;
+        }
+
+        .symptom-item input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #0056b3;
+            width: 16px;
+            height: 16px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        button[type="reset"] {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #e0a800;
+        }
+
+        .results {
+            margin-top: 40px;
+            padding: 25px;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+
+        .results h3 {
+            margin-top: 0;
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #e9ecef;
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Health AI</a>
+            <nav>
+                <ul>
+                    <li><a href="#predictor-section" class="active">Disease Prediction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Intelligent Health Insights</h1>
+                <p>Use our AI-powered tool to get potential insights based on your symptoms. Always consult a healthcare
+                    professional for a definitive diagnosis.</p>
+                <a href="#predictor-section" class="cta-button">Start Prediction</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='doctor_hero.jpeg') }}" alt="Doctor Illustration">
+            </div>
+        </div>
+    </section>
+
+    <main id="predictor-section">
+        <div class="container">
+            <h2>Symptom Checker</h2>
+            <div class="form-container">
+                <form action="/predict" method="post" id="symptom-form">
+                    <div class="symptoms-grid">
+                        {% if all_symptoms and 'Error' not in all_symptoms[0] %}
+                        {% for symptom in all_symptoms %}
+                        <div class="symptom-item">
+                            <label>
+                                <input type="checkbox" name="symptoms" value="{{ symptom }}" {% if selected_symptoms and
+                                    symptom in selected_symptoms %} checked {% endif %}>
+                                {{ symptom | replace('_', ' ') | title }}
+                            </label>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p class="error">Error: Could not load symptom list.</p>
+                        {% endif %}
+                    </div>
+                    <div class="button-container">
+                        <button type="submit">Predict Disease</button>
+                        <button type="reset">Reset Symptoms</button>
+                    </div>
+                </form>
+
+                {% if prediction_text %}
+                <div class="results">
+                    {% if "Predicted Disease:" in prediction_text %}
+                    <h3>Prediction & Suggestions</h3>
+                    <p><strong>{{ prediction_text }}</strong></p>
+                    <p><small><em>Disclaimer: This is not a substitute for medical advice.</em></small></p>
+                    <hr>
+                    <h4>Remedy Suggestion:</h4>
+                    <p>{{ remedy_text or 'No specific remedy available.' }}</p>
+                    <h4>Doctor Suggestion:</h4>
+                    <p>{{ doctor_text or 'No specific doctor information available.' }}</p>
+                    {% else %}
+                    <h3>Notice</h3>
+                    <p class="error"><strong>{{ prediction_text }}</strong></p>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {{ current_year }} Health AI Predictor. All rights reserved.</p>
+            <p>Current Time: {{ current_time }} in {{ current_location }}</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => link.classList.remove('active'));
+            if (window.scrollY >= document.querySelector('#predictor-section').offsetTop - 100) {
+                document.querySelector('a[href="#predictor-section"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
